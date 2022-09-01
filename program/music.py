@@ -20,10 +20,10 @@ from youtubesearchpython import VideosSearch
 def ytsearch(query):
     try:
         search = VideosSearch(query, limit=1)
-        for r in search.result()["result"]:
+        for r in search.result()["nəticə"]:
             ytid = r["id"]
-            if len(r["title"]) > 34:
-                songname = r["title"][:70]
+            if len(r["başlıq"]) > 34:
+                songname = r["başlıq"][:70]
             else:
                 songname = r["title"]
             url = f"https://www.youtube.com/watch?v={ytid}"
@@ -57,7 +57,7 @@ async def play(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="❄️ Menyu", callback_data="cbmenu"),
+                InlineKeyboardButton(text="❄️ Menu", callback_data="cbmenu"),
                 InlineKeyboardButton(text="🎄 Bağla", callback_data="cls"),
             ]
         ]
@@ -191,7 +191,7 @@ async def play(c: Client, m: Message):
                             )
                         else:
                             try:
-                                await suhu.edit("🎄 **Asistan səsli söhbətə qoşulur...**")
+                                await suhu.edit("👑 **Asistan səsli söhbətə qoşulur...**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioPiped(
