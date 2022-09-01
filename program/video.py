@@ -26,12 +26,12 @@ from youtubesearchpython import VideosSearch
 def ytsearch(query):
     try:
         search = VideosSearch(query, limit=1)
-        for r in search.result()["result"]:
+        for r in search.result()["nəticə"]:
             ytid = r["id"]
-            if len(r["title"]) > 34:
-                songname = r["title"][:70]
+            if len(r["başlıq"]) > 34:
+                songname = r["başlıq"][:70]
             else:
-                songname = r["title"]
+                songname = r["başlıq"]
             url = f"https://www.youtube.com/watch?v={ytid}"
         return [songname, url]
     except Exception as e:
@@ -63,13 +63,13 @@ async def vplay(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="❄️ Menyu", callback_data="cbmenu"),
+                InlineKeyboardButton(text="❄️ Menu", callback_data="cbmenu"),
                 InlineKeyboardButton(text="🎄 Bağla", callback_data="cls"),
             ]
         ]
     )
     if m.sender_chat:
-        return await m.reply_text("you're an __Anonymous Admin__ !\n\n» revert back to user account from admin rights.")
+        return await m.reply_text("siz __Anonim Adminsiniz__ !\n\n» admin hüquqlarından istifadəçi hesabına geri qayıdın.")
     try:
         aing = await c.get_me()
     except Exception as e:
@@ -77,7 +77,7 @@ async def vplay(c: Client, m: Message):
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
-            f"💡 Mənim **Administrator** **permissions** və aşağıdakı haqqlarım olmalıdır:\n\n» ❌ __Mesaj silmə__\n» ❌ __İstifadəçi əlavə etmə__\n» ❌ __Görüntülü söhbəti idarə etmə__\n\n"
+            f"💡 Mənim **Administrator** **icazələr** və aşağıdakı haqqlarım olmalıdır:\n\n» ❌ __Mesaj silmə__\n» ❌ __İstifadəçi əlavə etmə__\n» ❌ __Görüntülü söhbəti idarə etmə__\n\n"
         )
         return
     if not a.can_manage_voice_chats:
