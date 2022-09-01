@@ -60,7 +60,7 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 @{bn} tərəfindən yükləndi.\n\n⚡ Kanalımıza abunə olmağı unutmayın @SnactusNews**"
+        rep = f"**🎧 @{bn} tərəfindən yükləndi.\n\n Kanalımıza abunə olmağı unutmayın @gunes_isigi_33**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
@@ -76,7 +76,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Xəta. @SnactusSup da xətanı paylaşa bilərsiz.")
+        m.edit("❌ Xəta. @king_sohbet_33 da xətanı paylaşa bilərsiz.")
         print(e)
 
     try:
